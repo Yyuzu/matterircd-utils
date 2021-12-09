@@ -4,7 +4,7 @@ Just a few helper files / scripts for running matterircd
 
 ## Systemd service
 
-You can place [matterircd.service file](matterircd.service) in your `/etc/system/systemd` directory.
+You can place [matterircd.service file](systemd/matterircd.service) in your `/etc/system/systemd` directory.
 Don't forget to adapt the path to matterircd binary though.
 
 ## Hexchat nickname completion addon
@@ -25,10 +25,10 @@ sudo openssl dhparam -out /etc/bip/tls/dh.pem 2048
 sudo openssl req -newkey rsa:4096 -x509 -sha256 -days 365 -nodes -out /etc/bip/tls/bip.pem -keyout /etc/bip/tls/bip.pem
 ```
 
-You'll need to run `bipmkpw` and adapt [bip.conf](bip.conf) with it and your Mattermost token.
+You'll need to run `bipmkpw` and adapt [bip.conf](bip/bip.conf) with it and your Mattermost token.
 
 ### Backlog behavior
 
-With [bip.conf](bip.conf) setup, BIP connects to your local matterircd and replays backlog until last spoken on each channel/DM (independent reset). You can then reset backlog manually with `/bip blreset`.
+With [bip.conf](bip/bip.conf) setup, BIP connects to your local matterircd and replays backlog until last spoken on each channel/DM (independent reset). You can then reset backlog manually with `/bip blreset`.
 
 Alternatively, you could also set `backlog_reset_connection = true` to have BIP reset backlog as a whole when you speak in any channel/DM.
