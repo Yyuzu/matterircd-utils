@@ -7,6 +7,13 @@ Just a few helper files / scripts for running matterircd
 You can place [matterircd.service file](matterircd.service) in your `/etc/system/systemd` directory.
 Don't forget to adapt the path to matterircd binary though.
 
+## Hexchat nickname completion addon
+
+Download [mattermost_completion.pl](hexchat/mattermost_completion.pl) into `~/.config/hexchat/addons`, adapt `%alt_complete_networks` to match your Matterircd network name and then in hexchat:
+```
+/load ~/.config/hexchat/addons/mattermost_completion.pl
+```
+
 ## Using matterircd behind BIP IRC Proxy
 
 Matterircd backlog might be lacking a bit sometimes, or not include all missed chats. Also, you might want to stay logged in and just connect and chat, from whereever you are. Using BIP can help with this.
