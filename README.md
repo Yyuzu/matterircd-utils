@@ -7,12 +7,29 @@ Just a few helper files / scripts for running matterircd
 You can place [matterircd.service file](systemd/matterircd.service) in your `/etc/system/systemd` directory.
 Don't forget to adapt the path to matterircd binary though.
 
-## Hexchat nickname completion addon
+## Hexchat addons
 
-Download [mattermost_completion.pl](hexchat/mattermost_completion.pl) into `~/.config/hexchat/addons`, adapt `%alt_complete_networks` to match your Matterircd network name and then in hexchat:
+### Nickname completion
+
+In order to have Mattermost style nickname completion, download [mattermost_completion.pl](hexchat/mattermost_completion.pl) into `~/.config/hexchat/addons`.
+
+Be sure to adapt `%alt_complete_networks` to match your Matterircd network name and then load it in hexchat:
 ```
 /load ~/.config/hexchat/addons/mattermost_completion.pl
 ```
+
+### Thread formatting
+
+For better readability and identification of threads, download [mattermost_thread_additions_format.py](hexchat/mattermost_thread_additions_format.py) into `~/.config/hexchat/addons`.
+
+This script will colorize thread IDs (using hexchat colors 18-30 and bold) and will also reduce visibility of Mattermost thread context (re: ...) and following text (see `color_light` variable). If you have changed default colors (eg. for hilight, messages from self, ...) feel free to adapt color values. It should be able to handle thread context spread over multiple lines but I recommend setting `ShortenRepliesTo` to something like 20 or so, for readability in `matterircd.toml`.
+
+Be sure to adapt `mm_networks` to match your Matterircd network name and then load it in hexchat:
+```
+/load ~/.config/hexchat/addons/mattermost_thread_additions_format.py
+```
+
+Formatting is compatible with BIP IRC Proxy backlog timestamp prefix.
 
 ## Using matterircd behind BIP IRC Proxy
 
